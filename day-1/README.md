@@ -16,9 +16,14 @@ Trong Python, hàm `print()` được sử dụng để xuất dữ liệu ra m�
 
 Hàm `input()` trong Python cho phép người dùng nhập dữ liệu từ bàn phím. Dữ liệu nhập vào sẽ được trả về dưới dạng chuỗi (string). Ví dụ:
 
-- `name = input("Enter your name: ")`
-- `print("Hello, " + name + "!")`
-- `print(“Hello” + input(“What is your name”))`
+```python
+name = input("Enter your name: ")
+print("Hello, " + name + "!")
+```
+
+```python
+print(“Hello” + input(“What is your name”))
+```
 
 ## Variables
 
