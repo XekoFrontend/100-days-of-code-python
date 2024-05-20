@@ -2,6 +2,12 @@
 
 Trong ngày đầu tiên của khóa học, chúng ta đã học về các khái niệm cơ bản sau:
 
+## Table of Contents
+
+- [Print](#print)
+- [Input](#input)
+- [Variables](#variables)
+
 ## Print
 
 Trong Python, hàm `print()` được sử dụng để xuất dữ liệu ra màn hình. Dưới đây là một số ví dụ về cách sử dụng hàm `print()`:
