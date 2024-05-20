@@ -1,10 +1,10 @@
-# 100 Days of Code: Day 2
+# 100 Days of Code: Day 3
 
 ## Table of Contents
 
 ## Conditional statements
 
-### If else
+### 1. If else
 
 ```python
 if height >= 120:
@@ -13,7 +13,7 @@ else:
   print("Go out!")
 ```
 
-### elif
+### 2. elif
 
 ```python
 if height > 120:
@@ -46,7 +46,3 @@ else:
 ### Global
 
 ### Local
-
-```
-
-```
