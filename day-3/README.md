@@ -2,6 +2,9 @@
 
 ## Table of Contents
 
+- [Conditional statements](#conditional-statements)
+  - [If else](#1-if-else)
+
 ## Conditional statements
 
 ### 1. If else
@@ -13,7 +16,11 @@ else:
   print("Go out!")
 ```
 
-### 2. elif
+### 2. Nested if
+
+- [<u>Example code: Leap Year Exercise</u>](./leap-year.py)
+
+### 3. elif
 
 ```python
 if height > 120:
@@ -27,6 +34,14 @@ if height > 120:
 else:
   print("You can't ride 😒")
 ```
+
+### 4. Multiple if **vs** elif
+
+| Multiple if                                                                                                 | elif                                                                                             |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Mỗi điều kiện được kiểm tra độc lập. Nhiều điều kiện có thể đúng và các khối mã tương ứng sẽ được thực thi. | Các điều kiện được kiểm tra tuần tự. Khi một điều kiện đúng, các điều kiện còn lại sẽ bị bỏ qua. |
+
+- [<u>Example code: Rollercoaster</u>](./elif-rollercoaster.py)
 
 ### Logical operators
 
