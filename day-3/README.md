@@ -20,6 +20,8 @@ else:
 
 - [<u>Example code: Leap Year Exercise</u>](./leap-year.py)
 
+  - [<u>Leap Year Flow Chart</u>](./leap-year-flow-chart.jpg)
+
 ### 3. elif
 
 ```python
@@ -41,7 +43,28 @@ else:
 | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | Mỗi điều kiện được kiểm tra độc lập. Nhiều điều kiện có thể đúng và các khối mã tương ứng sẽ được thực thi. | Các điều kiện được kiểm tra tuần tự. Khi một điều kiện đúng, các điều kiện còn lại sẽ bị bỏ qua. |
 
-- [<u>Example code: Rollercoaster</u>](./elif-rollercoaster.py)
+```python
+# Variable keeps track of the ongoing price.
+bill = 0
+
+if size == "S":
+  bill += 15
+elif size == "M":
+  bill += 20
+else:
+  bill += 25
+
+if add_pepperoni == "Y":
+  if size == "S":
+    bill += 2
+  else:
+    bill += 3
+
+if extra_cheese == "Y":
+  bill += 1
+
+print(f"Your final bill is: ${bill}.")
+```
 
 ### Logical operators
 
