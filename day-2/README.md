@@ -1,5 +1,7 @@
 # 100 Days of Code: Day 2
 
+## Table of Contents
+
 - [Data types](#data-types)
   - [String](#1-string)
   - [Integer](#2-integer)
