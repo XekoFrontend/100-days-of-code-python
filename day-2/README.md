@@ -1,5 +1,16 @@
 # 100 Days of Code: Day 2
 
+## Table of Contents
+
+- [Data types](#data-types)
+  - [String](#string)
+  - [Integer](#integer)
+  - [Float](#float)
+  - [Boolean](#boolean)
+- [Operations](#operations)
+- [Type Conversion](#type-conversion)
+- [f-string](#f-string)
+
 ## Data types (Kiểu dữ liệu)
 
 ### 1. String (Chuỗi ký tự)
