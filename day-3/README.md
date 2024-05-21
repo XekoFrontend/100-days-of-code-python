@@ -4,6 +4,16 @@
 
 - [Conditional statements](#conditional-statements)
   - [If else](#1-if-else)
+  - [Nested if](#2-nested-if)
+  - [elif](#3-elif)
+  - [Multiple if vs elif](#4-multiple-if-vs-elif)
+- [Logical operators](#logical-operators)
+- [Comparison Operators](#comparison-operators)
+- [Bonus](#b-bonus)
+  - [count()](#1-count)
+  - [.lower(), .upper(), .title()](#2-lower-upper-title)
+
+## A. Main content
 
 ## Conditional statements
 
@@ -66,9 +76,13 @@ if extra_cheese == "Y":
 print(f"Your final bill is: ${bill}.")
 ```
 
-### Logical operators
+## Logical operators
 
-#### Comparison Operators
+- `and`
+- `or`
+- `not`
+
+## Comparison Operators
 
 - `>` Greater than
 - `<` Less than
@@ -77,10 +91,38 @@ print(f"Your final bill is: ${bill}.")
 - `==` Equal to
 - `!=` Not equal to
 
-## Code blocks
+## B. Bonus
 
-## Scope
+### 1. count()
 
-### Global
+> Hàm count() trong Python được sử dụng để đếm số lần một giá trị xuất hiện trong một chuỗi (string) hoặc danh sách (list).
 
-### Local
+1. String
+
+```python
+text = "hello world, hello universe"
+count_hello = text.count("hello")
+print(count_hello)  # Output: 2
+
+count_o = text.count("o")
+print(count_o)  # Output: 3
+
+count_l = text.count("l", 0, 10)
+print(count_l)  # Output: 2 (chỉ đếm trong "hello wor")
+```
+
+2. List
+
+```python
+numbers = [1, 2, 3, 4, 1, 2, 1]
+count_1 = numbers.count(1)
+print(count_1)  # Output: 3
+```
+
+### 2. .lower(), .upper(), .title()
+
+```python
+"KiloMeter".lower()  # kilometer
+"KiloMeter".upper()  # KILOMETER
+"KilOMeTEr".title()  # Kilometer
+```
