@@ -97,7 +97,7 @@ print(f"Your final bill is: ${bill}.")
 
 > Hàm count() trong Python được sử dụng để đếm số lần một giá trị xuất hiện trong một chuỗi (string) hoặc danh sách (list).
 
-1. String
+- String
 
 ```python
 text = "hello world, hello universe"
@@ -111,7 +111,7 @@ count_l = text.count("l", 0, 10)
 print(count_l)  # Output: 2 (chỉ đếm trong "hello wor")
 ```
 
-2. List
+- List
 
 ```python
 numbers = [1, 2, 3, 4, 1, 2, 1]
@@ -126,3 +126,27 @@ print(count_1)  # Output: 3
 "KiloMeter".upper()  # KILOMETER
 "KilOMeTEr".title()  # Kilometer
 ```
+
+### 3. Trick Your Brain with the 20min Rule
+
+_**12 Rules to Learn to Code by Dr. Angela Yu**_
+
+Quote:
+
+> As humans, we have a lot of inertia. This can be bad for us - I’m looking at you, “24” box set. However, we can also turn it to our advantage. I found that once I got started coding and making things, I got so absorbed into the project, that I no longer cared about TV, food or sleep. There were quite a few weekends when I coded until sunrise.
+>
+> So how do we take advantage of this inertia? First, you must understand that task-switching is very difficult. It requires a lot of motivation. If as soon as you get home, you slump on the sofa and switch on the TV, you’ve already lost that evening. This is because the amount of motivation required to task-switch and do something not driven by evolution like eating or sleeping is a Herculean task.
+>
+> This is why the moment you enter the door and change to a new environment is the most crucial moment. If at this moment, you tell yourself that you are just going to do 20 minutes of coding practice, you will most likely succeed and use your own inertia to end up learning for an hour or more. No brain will perceive a 20-minute task as a lot of effort and you end up tricking your brain to take advantage of your evening.
+>
+> The next step is to develop a habit.
+
+Vietnamese translation.
+
+> Con người, thường có **xu hướng làm việc theo quán tính (Flow)**. Điều này có thể gây hại cho chúng ta. Tuy nhiên, chúng ta cũng có thể biến nó thành lợi thế của mình. Tôi phát hiện ra rằng một khi bắt đầu lập trình và tạo ra thứ gì đó, tôi trở nên chìm đắm vào dự án đến mức không còn quan tâm đến TV, thức ăn hay giấc ngủ. Có khá nhiều cuối tuần tôi đã lập trình cho đến bình minh.
+>
+> Vậy làm thế nào để tận dụng được Flow này? Đầu tiên, bạn phải hiểu rằng việc chuyển đổi công việc là rất khó khăn. Nó đòi hỏi rất nhiều động lực. Nếu ngay khi bạn về nhà, bạn lăn ra sofa và bật TV, bạn đã mất một buổi tối. Bởi vì lượng động lực cần thiết để chuyển đổi công việc và làm điều gì đó không được thúc đẩy bởi những việc bản năng như ăn uống hay ngủ nghỉ.
+>
+> Đó là lý do tại sao khoảnh khắc bạn bước vào cửa và thay đổi môi trường mới là quan trọng nhất. Nếu vào lúc này, bạn tự nhủ rằng bạn **chỉ lập trình trong 20 phút**, bạn sẽ có khả năng thành công và sử dụng quán tính này để cuối cùng tiếp tục trong một giờ hoặc hơn. **Không có bộ não nào cảm thấy một nhiệm vụ 20 phút là quá nhiều công sức và bạn sẽ lừa được bộ não của mình** để tận dụng buổi tối đấy.
+>
+> **Bước tiếp theo là phát triển một thói quen**.
