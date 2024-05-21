@@ -28,9 +28,9 @@ else:
 
 ### 2. Nested if
 
-- [<u>Example code: Leap Year Exercise</u>](./leap-year.py)
+- [<u>Example code: Leap Year Exercise</u>](./4-leap-year.py)
 
-  - [<u>Leap Year Flow Chart</u>](./leap-year-flow-chart.jpg)
+  - [<u>Leap Year Flow Chart</u>](./4-leap-year-flow-chart.jpg)
 
 ### 3. elif
 
