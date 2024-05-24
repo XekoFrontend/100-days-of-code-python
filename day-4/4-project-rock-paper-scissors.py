@@ -1,4 +1,4 @@
-#  This exercise applies the concepts of importing modules, using the random library, and conditional statements using if-else blocks.
+#  This exercise applies the concepts of importing modules, using the random library, list, and conditional statements using if-else blocks.
 
 import random
 import my_ascii_art

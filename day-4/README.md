@@ -1,8 +1,17 @@
-# 100 Days of Code: Day 3
+# 100 Days of Code: Day 4
 
 ## Table of Contents
 
-- [Conditional statements](#conditional-statements)
+- [A. Main content](#a-main-content)
+  - [Module](#module)
+  - [Random module](#random-module)
+  - [List](#list)
+    - [Examples](#1-examples)
+    - [Nested List](#2-nested-list)
+    - [Exercise Review](#3-exercise-review)
+- [B. Bonus](#b-bonus)
+  - [So sánh 'choice()' và 'random()' trong Python](#so-sanh-choice-va-random-trong-python)
+  - [Hàm `split()` trong Python](#ham-split-trong-python)
 
 ## A. Main content
 
@@ -48,9 +57,10 @@ random_float = random.random() * 5 # 0.000 ... to 4.9999...
 
 ### List
 
-1. [Document: More on Lists](https://docs.python.org/3/tutorial/datastructures.html)
+#### 1. Examples
 
-An example that uses most of the list methods:
+- [Document: More on Lists](https://docs.python.org/3/tutorial/datastructures.html)
+- An example that uses most of the list methods:
 
 ```python
 fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
@@ -77,7 +87,7 @@ list.remove(x) # Remove the first item from the list whose value is equal to x.
 list.clear() #Remove all items from the list.
 ```
 
-2. Nested List
+#### 2. Nested List
 
 ```python
 students = [
@@ -96,7 +106,12 @@ third_student_subjects = students[2][2]
 print(third_student_subjects)  # Output: Văn, Sử, Lý
 ```
 
-3. This exercise should be reviewed: [3-treasure-map.py](./3-treasure-map.py)
+#### 3. Exercise Review:
+
+These exercise should be reviewed
+
+- [3-treasure-map.py](./3-treasure-map.py)
+- [4-project-rock-paper-scissors](./4-project-rock-paper-scissors.py)
 
 ## B. Bonus
 
