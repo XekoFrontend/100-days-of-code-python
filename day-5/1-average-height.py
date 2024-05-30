@@ -5,6 +5,24 @@ student_heights = input("Enter student height (cm):\n").split()
 for n in range(0, len(student_heights)):
   student_heights[n] = int(student_heights[n])
 # Your code below this row 👇
+
+# Count total students in the list
+total_students = len(student_heights)
+
+# Sum of student heights
+sum_height = 0
+for height in student_heights:
+  # sum_height = sum_height + int(height)
+  sum_height += int(height)
+
+average_height = round(sum_height / total_students)
+
+print(f"total height = {sum_height}")
+print(f"number of students = {total_students}")
+print(f"average height = {average_height}")
+
+# Angela's code solution
+'''
 total_height = 0
 for height in student_heights:
   total_height += height
@@ -17,4 +35,4 @@ print(f"number of students = {total_student}")
 
 average_height = round(total_height / total_student)
 print(f"average height = {average_height}")
-
+'''
