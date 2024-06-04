@@ -8,6 +8,7 @@
   - [range()](#range)
 - [B. Extra contents](#b-extra-contents)
   - [random.shuffle()](#randomshuffle)
+  - [Find all item locations](#find-all-item-locations)
 
 ## A. Main content
 
@@ -68,4 +69,18 @@ import random
 new_list = ['x', 'L', 'm', 'a', '#', '%', '3', '4']
 random.shuffle(new_list)
 print(new_list) #['4', '%', '#', 'a', 'x', 'm', 'L', '3']
+```
+
+### Find all item locations
+
+I solved another student's assignment on [facebook](https://www.facebook.com/groups/790427278627368/permalink/1172642740405818/).
+
+```python
+# Tìm tất cả vị trí của Táo
+hoa_qua = ["Lê", "táo", "táo", "chuối", "táo", "xoài", "nho", "táo", "táo"]
+index = 0
+for fruit in hoa_qua:
+  if fruit == "táo":
+    print(index)
+  index += 1
 ```
