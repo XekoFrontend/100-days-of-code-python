@@ -17,20 +17,6 @@ def jump():
         turn_right()
         move()
 
-# The Angela's solution
-'''
-def jump():
-    turn_left()    
-    while wall_on_right():
-        move()    
-    turn_right()
-    move()
-    turn_right()
-    while front_is_clear():
-        move()
-    turn_left()
-'''
-
 while not at_goal():    
     if wall_in_front():
         jump()
@@ -38,7 +24,7 @@ while not at_goal():
         move()
 
 
-# --- Another of my code :D
+# --- Another one of my while loop solutions :D
 '''
 def turn_right():
     turn_left()
@@ -58,4 +44,18 @@ while not at_goal():
         move()
     while right_is_clear() and not at_goal():
         jump()
+'''
+
+# --- The Angela's solution
+'''
+def jump():
+    turn_left()    
+    while wall_on_right():
+        move()    
+    turn_right()
+    move()
+    turn_right()
+    while front_is_clear():
+        move()
+    turn_left()
 '''
