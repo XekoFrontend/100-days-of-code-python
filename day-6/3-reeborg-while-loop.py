@@ -1,3 +1,4 @@
+# Hurdles Challenge using While Loops
 # https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%203&url=worlds%2Ftutorial_en%2Fhurdle3.json
 
 def turn_right():
@@ -15,9 +16,8 @@ def jump():
     turn_left()
 
 while not at_goal():
-    # Angela's solution that uses if/else    
+    # Note: Angela’s solution that uses if/else instead of a while loop from here....   
     while front_is_clear() and not at_goal():
-        move()  
-
+        move()
     while wall_in_front() and not at_goal():
         jump()
