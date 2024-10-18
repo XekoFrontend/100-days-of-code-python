@@ -14,11 +14,10 @@ def jump():
     move()
     turn_left()
 
-while not at_goal():    
+while not at_goal():
+    # Angela's solution that uses if/else    
     while front_is_clear() and not at_goal():
         move()  
 
     while wall_in_front() and not at_goal():
         jump()
-
-# --- Angela's solution that uses if/else
