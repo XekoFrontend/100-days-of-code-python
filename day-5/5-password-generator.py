@@ -20,6 +20,7 @@ nr_choice = input("Do you want to choice an easy password or a hard password (e/
 # nr_symbols = 2
 # nr_numbers = 2 
 
+### --- 1. For loop ---
 # set số lần loop, dựa vào input
 loop_time_letters = range(0, nr_letters)
 loop_time_symbols = range(0, nr_symbols)
@@ -43,7 +44,7 @@ for letter in loop_time_numbers:
   add_to_list = new_list.append(new_letter)
 
 # ---------
-# Another way is Use .join() to print the password from the list
+# Another way is Use .join() to print the password from the list (⬇️ 2. While loop)
 # password = ''.join(new_list)
 # ---------
 
@@ -66,4 +67,29 @@ else:
 
 
 
+### --- 2. While loop ---
+'''
+password = []
+while nr_letters > 0:
+    nr_letters -= 1
+    letters_rand = random.choice(letters)
+    password += letters_rand
 
+while nr_numbers > 0:
+    nr_numbers -= 1
+    numbers_ran = random.choice(numbers)
+    password += numbers_ran
+
+while nr_symbols > 0:
+    nr_symbols -= 1
+    symbols_rand = random.choice(symbols)
+    password.append(symbols_rand)
+
+
+print(f"Eazy pass: {"".join(password)}")
+
+#Hard Level - Order of characters randomised:
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+random.shuffle(password)
+print(f"Hard pass: {"".join(password)}")
+'''
