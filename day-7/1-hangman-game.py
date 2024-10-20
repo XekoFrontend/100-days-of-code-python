@@ -20,6 +20,7 @@ print(placeholder)
 
 correct_letters = [] # Save correct letters, avoid reset after each loop
 lives = 5
+hearts = ["❤️", "❤️", "❤️", "❤️", "❤️"]
 game_over = False
 while not game_over:
   #TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
@@ -38,21 +39,23 @@ while not game_over:
   # Check if guess letter is wrong will reduce one life and remaining life.
   if guess not in chosen_word:
     lives -= 1
-    print(f"You have {lives} lives left.")
+    hearts.pop(0)
+    print(f"It's wrong. You have {lives} hearts left.")
   # Check win or lose
   checking = display.count("_")
   if checking == 0:
     game_over = True
-    print("🎉  Your answer is correctly.")
+    print("🎉  You win.")
   elif lives == 0:
     game_over = True
     print("💀  Your lose.")
+  else:
+    print(*hearts)
 
-
-
-
-
+##########
 # COMMENT:
-#         1. Mình bị mắc kẹt ở đoạn in "_" do hướng đến việc dùng list để ẩn từ khóa. Trong khi giải pháp đơn giản hơn là dùng dấu cộng (+) để nối các ký tự.
+#         1. Mình bị mắc kẹt ở đoạn in "_" do hướng đến việc dùng list để ẩn từ khóa.
+#            Trong khi giải pháp đơn giản hơn là dùng dấu cộng (+) để nối các ký tự.
+#            Hoặc dùng (*) trong hàm - print(*hearts) -
 #         2. Sử dụng  - in - trong (if "_" not in display:) để kiểm tra ký tự trong display thay cho (checking = display.count("_")), sau đó tạo 1 - elif - để xem ký tự đã có trong danh sách correct_letters và cộng tiếp vô display luôn.
-
+##########
