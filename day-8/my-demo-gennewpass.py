@@ -12,18 +12,26 @@ print(uppercase_alphabet)
 full_alphabet = list(string.ascii_letters)
 print(full_alphabet)
 '''
-###########
-# PASSWORD EXERCISE
+#################################
+# ENCRYPTION PASSWORD EXERCISE
+#################################
 lowercase_alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-# Input demo
-old_pass = "abcd"
-shift = int(2)
-# Testing index location shift
-new_pass = ""
-for letter in old_pass:
-  if letter in lowercase_alphabet:
-    lowercase_index = int(lowercase_alphabet.index(letter)) + shift
-    letter_shift = lowercase_alphabet[lowercase_index]
-    new_pass += letter_shift
-print(old_pass)
-print(new_pass)
+
+password = input("Nhập mật khẩu của bạn: ").lower()
+encrypt_choice = input("Bạn muốn mã hóa hay giải mã (e/d): ").lower()
+shift = int(input("Nhập số bước: "))
+
+def encryption_password(password, shift):
+  new_pass = ""
+  for letter in password:
+    if letter in lowercase_alphabet:
+      lowercase_index = int(lowercase_alphabet.index(letter)) + shift
+      letter_shift = lowercase_alphabet[lowercase_index]
+      new_pass += letter_shift
+  print(new_pass)
+
+if encrypt_choice == "e":
+  encryption_password(password, shift)
+elif encrypt_choice == 'd':
+  decryption = 0 - shift
+  encryption_password(password, decryption)
