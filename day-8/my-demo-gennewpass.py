@@ -6,6 +6,14 @@ lowercase_alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'
 password = input("Nhập mật khẩu của bạn: ").lower()
 encrypt_choice = input("Bạn muốn mã hóa hay giải mã (e/d): ").lower()
 shift = int(input("Nhập số bước: "))
+
+# process checkpoint
+checkpoint = (len(lowercase_alphabet) -1) # int = 25
+while shift > checkpoint:    
+    new_shift = shift - checkpoint
+    if new_shift < checkpoint:
+      break 
+
 # Encryption function
 def encryption_password(password, shift):
   new_pass = ""
@@ -23,8 +31,6 @@ elif encrypt_choice == 'd':
   encryption_password(password, decryption)
 
 
-
-# TODO: IndexError: list index out of range
 
   ########### GENERATED ALPHABET LIST ###########
 # The - string - module provides a simple way to generate lists of the alphabet.
