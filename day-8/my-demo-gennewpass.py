@@ -3,7 +3,7 @@
 #################################
 lowercase_alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-def encryption_password(password, shift, choice):
+def encryption_password(password: str, shift: int, choice: str):
   new_pass = ""
   for letter in password:
     if letter in lowercase_alphabet:
