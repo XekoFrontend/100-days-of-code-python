@@ -20,7 +20,6 @@ def encryption_password(password: str, shift: int, choice: str):
       new_pass += letter_shift      
   print(new_pass)
 
-
 quit_program = False
 while not quit_program:
   password = input("Nhập mật khẩu của bạn: ").lower()
@@ -31,24 +30,3 @@ while not quit_program:
   quit_choice = input("Do you want to quit program (y/n): ")
   if quit_choice == "y":
     quit_program = True
-
-
-
-
-
-
-
-  ########### GENERATED ALPHABET LIST ###########
-# The - string - module provides a simple way to generate lists of the alphabet.
-'''
-import string
-# Lowercase alphabet
-lowercase_alphabet = list(string.ascii_lowercase)
-print(lowercase_alphabet)
-# Lowercase alphabet
-uppercase_alphabet = list(string.ascii_uppercase)
-print(uppercase_alphabet)
-# Both lowercase and uppercase
-full_alphabet = list(string.ascii_letters)
-print(full_alphabet)
-'''
