@@ -1,17 +1,18 @@
+# Tạo một danh sách số và độ dài ngẫu nhiên.
 import random
 numbers = []
 max_stop = random.randint(10, 20)
-for length in range (max_stop - 1):          # Thực hiện độ dài danh sách ngẫu nhiên
-  number_random = random.randint(1,max_stop) # Tạo số ngẫu nhiên trong phạm vi được chỉ định.
+for length in range(max_stop):               # Thực hiện độ dài danh sách ngẫu nhiên
+  number_random = random.randint(0, max_stop) # Tạo số ngẫu nhiên trong phạm vi được chỉ định.
   numbers.append(number_random)
 print(numbers)
 
-# Find the largest number in the list.
+# Implement function to find largest number in list.
 max_number = numbers[0]     # Giả sử phần tử đầu tiên là lớn nhất
 for number in numbers:
     if number > max_number: # Nếu phần tử hiện tại lớn hơn max_number thì
         max_number = number # Gán giá trị của phần tử hiện tại cho max_number.
-print(max_number)
+print(f"The largest number is: {max_number}")
 
 '''
 Giải thích:
