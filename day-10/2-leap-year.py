@@ -1,3 +1,4 @@
+print("Finding leap years.")
 def is_leap_year(year):
     divisible_4 = int(year) % 4
     divisible_100 = int(year) % 100
@@ -13,31 +14,21 @@ def is_leap_year(year):
       return False  
 
 # 1. Check each input year.
-# year = input("Enter a year: ")
-# output = is_leap_year(year)
-# print(output)
+year = input("Enter a year: ")
+output = is_leap_year(year)
+print(output)
 
 # 2. Check leap years in range
-star = int(input("Star year: "))
-end = int(input("End year: ")) + 1
+# star_year = int(input("Star year: "))
+# end_year = int(input("End year: "))
 
-  # 2.1 Out put all years in a range
-# for year in range(star,end):
+#   # 2.1 Out put all years in a range
+# for year in range(star_year,end_year):
 #   output = is_leap_year(year)
 #   if output == True:
 #     print(f"{year} is leap year.")
 #   else:
 #     print(year)
-
-  # 2.2 Out put only leap years in a list.
-leap_years = []
-for year in range(star, end):
-  out_put = is_leap_year(year)
-  if out_put == True:
-    leap_years.append(str(year))
-
-print(f"Leap years from {star} to {end - 1} are: {', '.join(leap_years)}")
-
 
 '''
 - on every year that is divisible by 4 with no remainder
