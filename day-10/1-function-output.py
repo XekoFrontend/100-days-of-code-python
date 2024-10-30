@@ -1,4 +1,5 @@
 def function_1(f_name, l_name):
+  # Multiple return values.
   # Show notification if user don't type anything.
   if f_name == "" and l_name == "":
     return "You need to type a name."
