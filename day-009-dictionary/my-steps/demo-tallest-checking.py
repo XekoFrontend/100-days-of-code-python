@@ -33,3 +33,18 @@ def tallest_person(name, height):
   print(f"{list_keys[highest_location]} is tall {highest} cm who is the tallest person.")
 
 tallest_person(name, height)
+
+
+# clear VS code terminal: https://stackoverflow.com/questions/74948582/how-to-clear-vs-code-terminal-using-python-code
+"""
+import os
+
+def clear():
+  '''clear VS code terminal'''
+  # for Windows
+  if os.name == 'nt':
+      _ = os.system('cls')
+  # Mac or Linux (aka posix)
+  else:
+      _ = os.system('clear')
+"""
