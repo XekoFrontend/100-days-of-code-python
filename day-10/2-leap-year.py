@@ -1,17 +1,18 @@
 print("Finding leap years.")
 def is_leap_year(year):
-    divisible_4 = int(year) % 4
-    divisible_100 = int(year) % 100
-    divisible_400 = int(year) % 400
-    if divisible_4 == 0:
-      if divisible_100 == 0:
-        if divisible_400 == 0:
-          return True
-        else:
-          return False
-      return True
-    else:
-      return False  
+  """ Checking if the input year is the leap year"""
+  divisible_4 = int(year) % 4
+  divisible_100 = int(year) % 100
+  divisible_400 = int(year) % 400
+  if divisible_4 == 0:
+    if divisible_100 == 0:
+      if divisible_400 == 0:
+        return True
+      else:
+        return False
+    return True
+  else:
+    return False  
 
 # 1. Check each input year.
 year = input("Enter a year: ")
