@@ -1,6 +1,4 @@
 def is_leap_year(year):
-    # Write your code here. 
-    # Don't change the function name.
     divisible_4 = int(year) % 4
     divisible_100 = int(year) % 100
     divisible_400 = int(year) % 400
@@ -14,19 +12,31 @@ def is_leap_year(year):
     else:
       return False  
 
-# # year = [x for x in range(2000,2025)]
-# for year in range(2000,2025):
-#   output = is_leap_year(year)
-#   print(output)
-  
-out_put = is_leap_year(year=2024)
-print(out_put)
-
-
-
+# 1. Check each input year.
 # year = input("Enter a year: ")
 # output = is_leap_year(year)
 # print(output)
+
+# 2. Check leap years in range
+star = int(input("Star year: "))
+end = int(input("End year: ")) + 1
+
+  # 2.1 Out put all years in a range
+# for year in range(star,end):
+#   output = is_leap_year(year)
+#   if output == True:
+#     print(f"{year} is leap year.")
+#   else:
+#     print(year)
+
+  # 2.2 Out put only leap years in a list.
+leap_years = []
+for year in range(star, end):
+  out_put = is_leap_year(year)
+  if out_put == True:
+    leap_years.append(str(year))
+
+print(f"Leap years from {star} to {end - 1} are: {', '.join(leap_years)}")
 
 
 '''
