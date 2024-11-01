@@ -1,4 +1,4 @@
-import os, art
+import art
 
 print(art.logo)
 
