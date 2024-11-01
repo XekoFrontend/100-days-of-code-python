@@ -26,8 +26,12 @@ n1 = float(input("Enter the first number: "))
 continue_math = True
 while continue_math:
   operation = input("Enter the operation (+, -, *, /): ")
+  while operation != "+" and  operation != "-" and operation != "*" and operation != "/":
+    operation = input("Enter the operation (+, -, *, /): ")
   n2 = float(input("Enter the next number: "))
   continue_cal = input("Do you want to continue or exit (yes/no): ").lower()
+  while continue_cal != "yes" and continue_cal != "no":
+    continue_cal = input("Do you want to continue or exit (yes/no): ").lower()
   
   # Gọi hàm tính toán 'calculator' và hiển thị kết quả
   output_cal = calculator(n1, operation, n2)
@@ -44,4 +48,4 @@ while continue_math:
 
 
 
-# TODO: Hiện thông báo nếu nhập sai: phép tính, yes, no ... 
+# TODO: Hiện thông báo nếu nhập sai: phép tính, yes, no ... (dùng try-except: chưa học tới)
