@@ -1,71 +1,90 @@
-import random
+import random, art, os
 
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
-# 1. Chia bài
-# TODO 1: Chuyển phần chia bài thành function, tránh bị lặp lại code
-# 1.1 Player
-player_cards = []
-while len(player_cards) < 2:
-  random_card = player_cards.append(random.choice(cards))
- # Tính điểm 
-player_score = 0
-for score in player_cards:
-  player_score += score
-print(f"Your card {player_cards}, current score: {player_score}")
-
-# 1.2 Computer
-computer_cards = []
-while len(computer_cards) < 2:
-  random_card = computer_cards.append(random.choice(cards))
- # Tính điểm 
-computer_score = 0
-for score in computer_cards:
-  computer_score += score
-print(f"Computer first's card {computer_cards[0]}")
-# print(computer_cards, computer_score)
-
-# TODO 2: Bên nào có A + A hoặc A + 10 thì win luôn, nếu không chuyển sang bước 3
-
-
-# Hàm so sánh điểm
-def compare_score(player_score, compare_score):
-  if player_score <= 21 and player_score > computer_score:
-    print(f"You win. {player_score} > {computer_score}")
-  elif player_score > 21 or (player_score < computer_score and compare_score <= 21):
-    print(f"You loose. {player_score} < {computer_score}")
+def clear():
+  '''clear VS code terminal'''
+  # for Windows
+  if os.name == 'nt':
+      _ = os.system('cls')
+  # Mac or Linux (aka posix)
   else:
-    print(f"DraW {player_score} = {computer_score}")
+      _ = os.system('clear')
 
+def deal_card():
+  """Random a card"""
+  cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+  card = random.choice(cards)
+  return card
 
-# TODO 3: Nếu chưa blackjack win thì kiểm tra.
-# 3.1 Nếu score trên 16 có thể giằng hoặc bốc tiếp card tối đa 3 cards [tổng 5 cards].
+def calculate_score(cards):
+  """Take a list of cards and return the score calculated from the cards."""
+  # Tạo dấu diệu để nhận diện Black jack.
+  if sum(cards) == 21 and len(cards) == 2:
+    return 0
+  # Chuyển đổi Ace card điểm 11 sang 1, nếu tổng điểm lớn hơn 21.
+  if sum(cards) > 21 and 11 in cards:
+    cards.remove(11) # cards mean 'user_cards' or 'computer_cards'.
+    cards.append(1)
+  # Trả về tổng điểm của 1 list (cards) sau khi đã xét qua 2 điều kiện phía trên.
+  return sum(cards)
 
-# 3.2: Nếu socre < 16 sẽ bốc card, nếu chưa đủ 16 bốc tiếp. Nếu score > 16 và score <= 21 quay về bước 3.1
+def compare(user_score, computer_score, user_cards, computer_cards):
+  if user_score ==  computer_score:
+    return "Draw. 🤗"
+  elif user_score == 0:
+    return "You have BlackJack 💪.\nYou win. 🎉"
+  elif computer_score == 0:
+    return "Computer has BlackJack.\nou lose. 💀"
+  elif user_score > 21:
+    return "You lose. 💀"
+  elif user_score < 22 and len(user_cards) == 5:
+    return "You have Five Spirits 👼.\nYou win. 🎉"
+  elif computer_score < 22 and len(computer_cards) == 5:
+    return "Computer has Five Spirits.\nYou lose. 💀"
+  elif user_score > computer_score or computer_score > 21:
+    return "You win. 🎉"
+  else:
+    return "You lose. 💀"
 
-# 3.3: Nếu score > 21 thì thua Loose.
+def play_game():
+  print(art.logo)
+  user_cards = []
+  computer_cards = []  
+    # Chia bài
+  for _ in range(2):
+    user_cards.append(deal_card())
+    computer_cards.append(deal_card())
 
-get_card = True
-while get_card:
-  choice = input("Type 'y' to get another card. Type 'n' to pass: ")
-  if  choice == "n" or len(player_cards) > 5 or len(computer_cards) > 5:
-    # compare_score(player_score, computer_score)
-    get_card = False
+  is_game_over = False
+  while not is_game_over:
+  # Gọi hàm tính điểm calculate_score
+    user_score = calculate_score(cards=user_cards)
+    computer_score = calculate_score(cards=computer_cards)
+    print(f"User cards: {user_cards} and score: {user_score}")
+    print(f"Computer's first card: {computer_cards[0]}")
+    
 
+    if user_score == 0 or computer_score == 0 or user_score > 21:
+      is_game_over = True
+    else:
+      user_should_deal = input("Type 'y' to get another card. Type 'n' to pass.\n ")
+      if user_should_deal == 'y':
+        user_cards.append(deal_card())
+      else:
+        is_game_over = True
+    
 
-  if choice == 'y' and score < 16:
-    pick_card = random.choice(cards)
-    player_score += pick_card
-    player_cards.append(pick_card)
-    print(f"Your card {player_cards}. New score {player_score}")
-  
+  while computer_score != 0 and computer_score < 16:
+    computer_cards.append(deal_card())
+    computer_score = calculate_score(cards=computer_cards)
 
-  # TODO 4: Nếu cả 2 đều trên 16 và dưới 21 thì so điểm. Bên nào cao hơn sẽ win.
-  compare_score(player_score, computer_score)  
+  game_result = compare(user_score, computer_score, user_cards, computer_cards)
+  print(f"{" "*20}🏆\nYour final cards: {user_cards} and score: {user_score}")
+  print(f"Computer's final card: {computer_cards} and score: {computer_score}")
+  print(game_result)
 
-
-
-
+while input("Do you want to play a BlackJack game (y/n):") == 'y':
+  clear()
+  play_game()
   
   
 
