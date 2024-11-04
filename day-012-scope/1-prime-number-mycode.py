@@ -5,8 +5,7 @@ def is_prime(num):
     return False
   elif num == 2:
     return True
-  else:
-    
+  else:    
     for n in range(2, num):
       if num % n != 0:
         temp_list.append(True)
@@ -17,11 +16,9 @@ def is_prime(num):
     return False
   elif True in temp_list:
     return True
-  
 
-num= int(input("Enter a number: "))
+num = int(input("Enter a number: "))
 output = is_prime(num)
-
 print(output)
 
 
