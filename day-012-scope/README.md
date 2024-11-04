@@ -27,7 +27,6 @@ Về cơ bản bất kỳ khối mã như: `if`, `for`, `while` khi thụt lề 
 #### 3. Prime number checker
 
 Mình chỉ cố gắng tìm cách để đoạn [code của mình](./1-prime-number-mycode.py) có thể chạy tuy nhiên mình cảm thấy không ổn lắm nên tham khảo từ Chat GPT và một lần nữa việc học toán tạo ra sự khác biệt.\
-Ban đầu ý tưởng của 
 Đoạn code bên dưới áp dụng *'căn bậc hai'* trong toán học. [Reference Chat GPT](https://chatgpt.com/share/6728bb5e-b800-8004-8a01-b552d4b5e215)
 
 ```python
