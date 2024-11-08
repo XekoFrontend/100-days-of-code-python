@@ -28,7 +28,11 @@ Về cơ bản bất kỳ khối mã như: `if`, `for`, `while` khi thụt lề 
 #### 3. Global Scope
 
 This is why very often people will tell you to *avoid modifying global scope*.
-What if instead of modifying the enemies, you actually just simply returned it as the output and then Save it to the global variable
+What if instead of modifying the enemies, you actually just simply returned it as the output and then Save it to the global variable.\
+Quy ước đặt tên global chỉ để truy cập mà không chỉnh sửa. (Global constants are variables which you define and you're never planning on changing it ever again.)\
+Ex:  
+- `PI = 3.14`
+- `URL = http:\\www.udemy.com`  
 
 ```python
 enemies = 1 # Avoid modifying global scope
