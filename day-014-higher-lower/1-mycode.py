@@ -1,8 +1,5 @@
 import art, game_data, random, os
 
-release_amount_temp = []
-score = 0
-
 def clear():
     if os.name == 'nt':
         _ = os.system('cls')
@@ -29,11 +26,14 @@ def compare_release(choice):
     else:
         return 0
 
+# Temporary variables
+release_amount_temp = []
+score = 0
 # Show the first question
 question_A = question(order='Compare A')
-
 game_over = False
 while not game_over:
+    clear()
     question_B = question(order='Compare B')    
     print(art.logo)
     print(question_A)
@@ -42,22 +42,19 @@ while not game_over:
 
     choice = input("Which one sells better? Type 'A' or 'B': ").capitalize()
     compare_result = compare_release(choice)
+    
     # Nếu đúng thì cộng 1 điểm và tiếp tục game, nếu sai thì thoát game.
     if compare_result == 1:
         score += 1
-        print(f"You're right! Current score: {score}")
-        clear()
+        print(f"\nYou're right! Current score: {score}")        
         # Switching questions and release amounts from B to A.    
         question_A = question_B
         release_amount_temp[0] = release_amount_temp [1]
-        release_amount_temp.pop()
+        release_amount_temp.pop()        
     else:
-        print(f"Sorry, that's wrong.Final score: {score}")
+        print(f"\nSorry, that's wrong.Final score: {score}")
         game_over = True
 
-
-# output = compare_release(choice)
-# print(output)
 
 
 
