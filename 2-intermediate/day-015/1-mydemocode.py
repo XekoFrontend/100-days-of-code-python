@@ -30,23 +30,35 @@ resource = {
     "coffee": 100,
 }
 
-# TODO 1:  Prompt user by asking
+# TODO 4: Check resources sufficient?
+def is_resource_sufficient(order_ingredients):
+    for item in order_ingredients:
+        if order_ingredients[item] >= resource[item]:
+            # print(MENU["cost"])
+            print(f"Sorry there is not enough {item}.")
+
+
+
+profit = 0
+
+# TODO 2: turn off machine
 turn_off_machine = True
 while turn_off_machine:
-  choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
-  # if choice == "espresso":
-  #   print(MENU["espresso"])
-  # elif choice == "latte":
-  #   print(MENU["latte"])
-  # elif choice == "cappuccino":
-  #   print(MENU["cappuccino"])
-  if choice == "off":
-    turn_off_machine = False
-  elif choice == "report":
-    for i in resource:
-        print(f"{i}: {resource[i]}")
-  else:
-    print("Please spell correctly: espresso/latte/cappuccino")
+    # TODO 1:  Prompt user by asking
+    choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    if choice == "off":
+        turn_off_machine = False
+    # TODO 3:  print resource
+    elif choice == "report":
+        for i in resource:
+            print(f"{i}: {resource[i]}")
+        print(f"Money: {profit}$")
+    # TODO 4:
+    elif choice == "espresso" or choice == "latte" or choice == "cappuccino":
+        drink = MENU[choice]
+        is_resource_sufficient(order_ingredients=drink["ingredients"])
+    else:
+        print("Please spell correctly: espresso/latte/cappuccino/report/off")
 
 
   
