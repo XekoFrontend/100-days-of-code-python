@@ -24,18 +24,29 @@ MENU = {
     },
 }
 
+resource = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
 # TODO 1:  Prompt user by asking
-user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
-turn_of_marchine = False
-while not turn_of_marchine:
-  user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
-  if user_input == "espresso":
-    print(MENU["espresso"])
-  elif user_input == "latte":
-    print(MENU["latte"])
-  elif user_input == "cappuccino":
-    print(MENU["cappuccino"])
-  elif user_input == "off":
-    turn_of_marchine = True
+turn_off_machine = True
+while turn_off_machine:
+  choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+  # if choice == "espresso":
+  #   print(MENU["espresso"])
+  # elif choice == "latte":
+  #   print(MENU["latte"])
+  # elif choice == "cappuccino":
+  #   print(MENU["cappuccino"])
+  if choice == "off":
+    turn_off_machine = False
+  elif choice == "report":
+    for i in resource:
+        print(f"{i}: {resource[i]}")
   else:
     print("Please spell correctly: espresso/latte/cappuccino")
+
+
+  
