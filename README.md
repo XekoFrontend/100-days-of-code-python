@@ -9,3 +9,4 @@ A. Review
   2. Day 7: [Step 5 - Improving the User Experience](https://www.udemy.com/course/100-days-of-code/learn/lecture/19141072)
   3. Day 11: Recode BlackJack game.
   4. Day 12: Guessing number
+  5. Day 15: Coffee machine
