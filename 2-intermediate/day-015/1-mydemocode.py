@@ -44,21 +44,21 @@ def is_resource_sufficient(order_ingredients):
 def process_coins():
     """ Returns the total calculated from coins inserted. """
     print("Please insert coins.")
-    total = int(input("How many quarters: ")) * 0.25
-    total += int(input("How many dimes: ")) * 0.1
-    total += int(input("How many nickles: ")) * 0.05
-    total += int(input("How many pennies: ")) * 0.01
+    total = int(input("How many quarters (25 xu): ")) * 0.25
+    total += int(input("How many dimes (10 xu): ")) * 0.1
+    total += int(input("How many nickles (5 xu): ")) * 0.05
+    total += int(input("How many pennies (1 xu): ")) * 0.01
     return total
 
 profit = 0
 
-# TODO 2: turn off machine
-turn_off_machine = True
-while turn_off_machine:
+# TODO 2: Use 'while' loop to control coffee machine.
+machine_running = True
+while machine_running:
     # TODO 1:  Prompt user by asking
     choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
     if choice == "off":
-        turn_off_machine = False
+        machine_running = False
     # TODO 3:  print resource
     elif choice == "report":
         for i in resource:
