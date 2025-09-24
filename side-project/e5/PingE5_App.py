@@ -8,7 +8,11 @@ from pathlib import Path
 client_id = "3c38aa12-8458-4b15-bd2c-39b001dca0ed"
 client_secret = "cJz8Q~sMTktI2lE1Qp4Y3oFRLRE1yH0KH_O3AbJw"
 tenant_id = "8ffdd271-09c3-46c5-b82b-8ff463ac7a61"
-user_email = "vc8bv@tsd06.onmicrosoft.com"
+user_email = "Piano@tsd06.onmicrosoft.com"
+
+# Chọn chế độ gửi mail
+# SEND_MODE = "manual"  # danh sách tự chọn
+SEND_MODE = "organization"  # toàn bộ tổ chức
 
 # Step 1 - Get token
 token_url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
@@ -40,11 +44,26 @@ def safe_get(url, label):
         print(f"{label} → Lỗi:", e)
 
 # Step 2 - Gửi mail tới nhiều người
-recipients = [
+## Danh sách email thủ công nếu chọn SEND_MODE là "manual"
+manual_recipients = [
     "AdeleV@tsd06.onmicrosoft.com", "alt.jl-0d5gewa@yopmail.com",
     "pocequegoisa-5899@yopmail.com", "nguyenlethuong1309@tsd06.onmicrosoft.com",
-    
 ]
+
+## Lấy danh sách email toàn tổ chức nếu chọn SEND_MODE là "organization"
+if SEND_MODE == "organization":
+    print("🔎 Đang lấy danh sách toàn bộ email trong tổ chức ...")
+    users_url = "https://graph.microsoft.com/v1.0/users?$select=mail"
+    all_emails = []
+    while users_url:
+        res = requests.get(users_url, headers=headers)
+        data = res.json()
+        all_emails += [u["mail"] for u in data.get("value", []) if u.get("mail")]
+        users_url = data.get("@odata.nextLink")  # Phân trang nếu có nhiều user
+    recipients = all_emails
+else:
+    print("🔎 Đang lấy danh sách email bên ngoài tổ chức...")
+    recipients = manual_recipients
 
 mail_payload = {
   "message": {
@@ -56,13 +75,17 @@ mail_payload = {
         "Hy vọng mọi người có một khởi đầu ngày mới thật nhiều năng lượng!\n\n"
         "Tôi muốn dành vài phút để gửi lời khen thưởng đặc biệt đến toàn thể đội ngũ về những nỗ lực và thành quả xuất sắc trong tháng vừa qua. "
         "Nhờ sự cống hiến không ngừng nghỉ và tinh thần làm việc nhóm tuyệt vời của các bạn, chúng ta đã đạt được những mục tiêu ấn tượng và vượt qua nhiều thử thách.\n\n"
+        "Nhằm nâng cao hiệu suất làm việc và tối ưu hóa quy trình xử lý dữ liệu, chúng tôi xin thông báo về việc tích hợp Trail ChatGPT vào Excel – một công cụ hỗ trợ trí tuệ nhân tạo giúp tăng cường khả năng phân tích, xử lý ngôn ngữ và tự động hóa trong bảng tính.\n\n"
+        "Video giới thiệu: Tích hợp Trail ChatGPT vào Excel\n"
+        "Link: https://youtu.be/4raUaR-FK-M?si=bp-BqDU0SwDN3aXH \n\n"
         "Thật sự tự hào khi được làm việc cùng một tập thể tài năng và nhiệt huyết như các bạn. Hãy cùng nhau giữ vững phong độ này và tiếp tục gặt hái thêm nhiều thành công hơn nữa trong thời gian tới nhé!\n\n"
         "Chúc các bạn một ngày làm việc hiệu quả và tràn đầy niềm vui!\n\n"
         "Trân trọng,\n"
         "Ban Quản Lý"  # Thay vì tên cá nhân
       )
     },
-    "toRecipients": [{"emailAddress": {"address": email}} for email in recipients],
+    "toRecipients": [{"emailAddress": {"address": user_email}}],  # Chỉ gửi cho chính bạn hoặc để trống
+    "bccRecipients": [{"emailAddress": {"address": email}} for email in recipients],
     # Thêm phần này để ẩn/thay đổi tên người gửi
     "from": {
       "emailAddress": {
@@ -73,7 +96,15 @@ mail_payload = {
   }
 }
 
-print("📬 Gửi mail nội bộ và ngoài hệ thống ...")
+if SEND_MODE == "manual":
+    print(f"📧 Danh sách gửi mail thủ công ({len(recipients)} email):")
+    for email in recipients:
+      print(f"  - {email}")
+else:
+    print(f"📧 Danh sách gửi mail toàn tổ chức ({len(recipients)} email)")
+    for email in recipients:
+      print(f"  - {email}")
+
 res = requests.post(
     f"https://graph.microsoft.com/v1.0/users/{user_email}/sendMail",
     headers=headers,
