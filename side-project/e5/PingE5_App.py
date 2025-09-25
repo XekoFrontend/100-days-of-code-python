@@ -11,8 +11,8 @@ tenant_id = "8ffdd271-09c3-46c5-b82b-8ff463ac7a61"
 user_email = "Piano@tsd06.onmicrosoft.com"
 
 # Chọn chế độ gửi mail
-# SEND_MODE = "manual"  # danh sách tự chọn
-SEND_MODE = "organization"  # toàn bộ tổ chức
+SEND_MODE = "manual"  # danh sách tự chọn
+# SEND_MODE = "organization"  # toàn bộ tổ chức
 
 # Step 1 - Get token
 token_url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
@@ -75,9 +75,6 @@ mail_payload = {
         "Hy vọng mọi người có một khởi đầu ngày mới thật nhiều năng lượng!\n\n"
         "Tôi muốn dành vài phút để gửi lời khen thưởng đặc biệt đến toàn thể đội ngũ về những nỗ lực và thành quả xuất sắc trong tháng vừa qua. "
         "Nhờ sự cống hiến không ngừng nghỉ và tinh thần làm việc nhóm tuyệt vời của các bạn, chúng ta đã đạt được những mục tiêu ấn tượng và vượt qua nhiều thử thách.\n\n"
-        "Nhằm nâng cao hiệu suất làm việc và tối ưu hóa quy trình xử lý dữ liệu, chúng tôi xin thông báo về việc tích hợp Trail ChatGPT vào Excel – một công cụ hỗ trợ trí tuệ nhân tạo giúp tăng cường khả năng phân tích, xử lý ngôn ngữ và tự động hóa trong bảng tính.\n\n"
-        "Video giới thiệu: Tích hợp Trail ChatGPT vào Excel\n"
-        "Link: https://youtu.be/4raUaR-FK-M?si=bp-BqDU0SwDN3aXH \n\n"
         "Thật sự tự hào khi được làm việc cùng một tập thể tài năng và nhiệt huyết như các bạn. Hãy cùng nhau giữ vững phong độ này và tiếp tục gặt hái thêm nhiều thành công hơn nữa trong thời gian tới nhé!\n\n"
         "Chúc các bạn một ngày làm việc hiệu quả và tràn đầy niềm vui!\n\n"
         "Trân trọng,\n"
@@ -96,14 +93,13 @@ mail_payload = {
   }
 }
 
+### Hiển thị danh sách email sẽ gửi
 if SEND_MODE == "manual":
     print(f"📧 Danh sách gửi mail thủ công ({len(recipients)} email):")
     for email in recipients:
-      print(f"  - {email}")
+      print(f"  📨 {email}")
 else:
-    print(f"📧 Danh sách gửi mail toàn tổ chức ({len(recipients)} email)")
-    for email in recipients:
-      print(f"  - {email}")
+    print(f"📧 Danh sách gửi mail toàn tổ chức ({len(recipients)} email)")    
 
 res = requests.post(
     f"https://graph.microsoft.com/v1.0/users/{user_email}/sendMail",
@@ -123,7 +119,7 @@ safe_get(f"https://graph.microsoft.com/v1.0/users/{user_email}/calendars", "📅
 # Step 4 - Xoá nội dung thư mục OneDrive và tạo file giả trực tiếp trên cloud
 print("🧹 Xoá toàn bộ nội dung trong thư mục PingE5 (giữ nguyên thư mục)...")
 # Thay đổi tên remote và đường dẫn theo config mới của bạn
-os.system("rclone delete e5renew:PingE5 --leave-root")
+os.system("rclone delete e5renew:PingE5")
 
 print("📄 Tạo ngẫu nhiên 3-4 file giả trực tiếp trên OneDrive...")
 for i in range(random.randint(3, 4)):
@@ -136,8 +132,8 @@ for i in range(random.randint(3, 4)):
 
 # Step 5 - Upload ảnh từ thư mục local lên OneDrive
 print("🖼️ Upload ảnh từ local lên OneDrive...")
-# local_folder = r"C:\Users\haola\Downloads\PingE5"
-# remote_folder = "PingE5Images"
+local_folder = r"C:\Users\haola\Downloads\PingE5"
+remote_folder = "e5renew:PingE5/PingE5Images"
 
 # ĐÚNG: Dùng f-string
-os.system(r'rclone copy "C:\Users\haola\Downloads\PingE5" e5renew:PingE5Images --transfers=4 --checkers=8 --fast-list')
+os.system(f'rclone sync --progress {local_folder} {remote_folder} --transfers=4 --checkers=8 --fast-list')
