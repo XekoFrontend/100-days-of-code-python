@@ -1,5 +1,5 @@
 # Know lady characters ["Avril", "Serena", "Nico", "Leah", "Nikita", "Ada"]
-# 25/9/25
+
 import random
 
 crush_list = []
